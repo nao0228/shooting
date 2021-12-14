@@ -25,6 +25,8 @@ void EnemyA::init()
 	vy = 100 + 200 * App::rand();
 
 	radius = 30;
+
+	point = 10;
 }
 
 void EnemyA::update()
@@ -49,16 +51,5 @@ void EnemyA::update()
 void EnemyA::draw()
 {
 	Ellipse(App::hDC, x - radius, y - radius, x + radius, y + radius);
-	LPCWSTR c;
 
-	c = TEXT("|");
-	TextOut(App::hDC, (int)x - 21, (int)y, c, lstrlen(c));
-	c = TEXT("|");
-	TextOut(App::hDC, (int)x + 18, (int)y, c, lstrlen(c));
-	c = TEXT("---");
-	TextOut(App::hDC, (int)x - 16, (int)y + 10, c, lstrlen(c));
-	c = TEXT("---");
-	TextOut(App::hDC, (int)x - 16, (int)y - 7, c, lstrlen(c));
-	c = TEXT("--+--");
-	TextOut(App::hDC, (int)x - 27, (int)y - 20, c, lstrlen(c));
 }

@@ -4,12 +4,10 @@
 
 class App
 {
-private:
-	static std::mt19937 mt;
 public:
 	static HWND hWnd;
 	static HDC hDC;
-	static double rand();
+	static std::mt19937 mt;
 
 	App();
 	virtual ~App();
@@ -20,5 +18,6 @@ public:
 	virtual void draw();
 	virtual void keyDown(WPARAM key);
 	virtual void keyUp(WPARAM key);
+	static double rand();
 };
 

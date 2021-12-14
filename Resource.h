@@ -1,6 +1,6 @@
 ﻿//{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ で生成されたインクルード ファイルです。
-// 次で使用: shooting.rc
+// 次で使用: Shooting.rc
 
 #define IDS_APP_TITLE			103
 

@@ -14,6 +14,7 @@ void App::init()
 	mt.seed(rd());
 }
 
+
 void App::cleanup()
 {
 }

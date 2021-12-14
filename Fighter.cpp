@@ -17,12 +17,13 @@ void Fighter::init()
 	vx = 200;
 	y = 400;
 	vy = 200;
-	radius = 30;
+
 }
 
 void Fighter::cleanup()
 {
 	FlyingObject::cleanup();
+	missiles.clear();
 }
 
 void Fighter::update()
@@ -61,7 +62,7 @@ void Fighter::draw()
 	TextOut(App::hDC, (int)x - 16, (int)y-7, c, lstrlen(c));
 	c = TEXT("--+--");
 	TextOut(App::hDC, (int)x - 27, (int)y -20, c, lstrlen(c));
-
+	radius = 30;
 	//c = TEXT("-+-");
 	//TextOut(App::hDC, (int)x - 23, (int)y + 6, c, lstrlen(c));
 	drawDebug();
@@ -78,4 +79,20 @@ void Fighter::move(DIRECTION dir)
 void Fighter::stop(DIRECTION dir)
 {
 	this->dir &= ~dir;
+}
+
+void Fighter::loadMissile(Missile* m) {
+	missiles.push_back(m);
+}
+
+void Fighter::shoot() {
+	for (size_t i = 0; i < missiles.size(); i++) {
+	}
+	for (size_t i = 0; i < missiles.size(); i++) {
+		if (!(missiles[i]->status & ACTIVE)) {
+			missiles[i]->init();
+			missiles[i]->fire(x, y - radius, 0, -400);
+			return;
+		}
+	}
 }

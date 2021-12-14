@@ -3,22 +3,25 @@
 #include "Fighter.h"
 #include "EnemyA.h"
 #include "Missile.h"
+#include "Score.h"
 #include <vector>
-#define N_ENEMY_A 2 // 敵機を2機
-#define N_MISSILE 10 // ミサイルは10発
+#define N_MISSILE 10
+#define N_ENEMY_A 2
 
-
-class ShootingApp :public App
+class ShootingApp :
+    public App
 {
-private:
-	Fighter fighter;
-	Missile missile[N_MISSILE];
-	EnemyA enemyA[N_ENEMY_A];
-	void init();
-	void cleanup();
-	void update();
-	void draw();
-	void keyDown(WPARAM key);
-	void keyUp(WPARAM key);
+    Fighter fighter;
+    EnemyA enemyA[N_ENEMY_A];
+    Missile missile[N_MISSILE];
+    std::vector<FlyingObject*> fos;
+    std::vector<Enemy*> enemies;
+    std::vector<Missile*> missiles;
+    Score score;
+    void init();
+    void cleanup();
+    void update();
+    void draw();
+    void keyDown(WPARAM key);
+    void keyUp(WPARAM key);
 };
-
