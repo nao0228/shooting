@@ -1,6 +1,8 @@
 #include "ShootingApp.h"
 #include "FlyingObject.h"
-#define sqr(x) (x*x)
+#include "Sound.h"
+
+#define sqr(x) ((x)*(x))
 
 FlyingObject::FlyingObject() : x(0), vx(0),y(0),vy(0),radius(0),status(0)
 {
@@ -65,7 +67,7 @@ bool FlyingObject::checkCollision(FlyingObject* fo) {
         return false;
     }
 
-    if (sqr(radius + fo->radius) < (sqr(x - fo->x) + sqr(y - fo->y))) {
+    if (sqr(this->radius + fo->radius) < (sqr(this->x - fo->x) + sqr(this->y - fo->y))) {
         return false;
     }
 
@@ -98,6 +100,7 @@ void FlyingObject::drawExplosion() {
         TextOut(App::hDC, (int)x - 25, (int)y - 5, c, lstrlen(c));
     }
     else {
+        Sound::getInstance()->request(TEXT("explosion"));
         c = TEXT("(-)");
         TextOut(App::hDC, (int)x - 15, (int)y - 5, c, lstrlen(c));
     }

@@ -1,5 +1,6 @@
 #include "ShootingApp.h"
 #include "Fighter.h"
+#include "Sound.h"
 
 Fighter::Fighter() : FlyingObject(), dir(STOP)
 {
@@ -28,6 +29,14 @@ void Fighter::cleanup()
 
 void Fighter::update()
 {
+	if (status & COLLISION)
+	{
+		if (etimer.get() > 0.5)
+		{
+			cleanup();
+		}
+		return;
+	}
 	FlyingObject::update();
 
 	double dx = 0;
@@ -49,7 +58,11 @@ void Fighter::update()
 }
 
 void Fighter::draw()
-{
+{	
+	if (status & COLLISION) {
+		drawExplosion();
+		return;
+	}
 	LPCWSTR c;
 
 	c = TEXT("|");
@@ -92,6 +105,7 @@ void Fighter::shoot() {
 		if (!(missiles[i]->status & ACTIVE)) {
 			missiles[i]->init();
 			missiles[i]->fire(x, y - radius, 0, -400);
+			Sound::getInstance()->request(TEXT("shoot"));
 			return;
 		}
 	}
