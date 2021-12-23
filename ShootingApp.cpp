@@ -3,9 +3,9 @@
 
 void ShootingApp::init()
 {	
-	Sound::getInstance()->registerFile(TEXT("c:/windows/Media/chimes.wav"), TEXT("explosion"));
-	Sound::getInstance()->registerFile(TEXT("c:/windows/Media/ir_begin.wav"), TEXT("shoot"));
-	Sound::getInstance()->registerFile(TEXT("c:/windows/Media/flourish.mid"), TEXT("bgm"));
+	Sound::getInstance()->registerFile(TEXT("M:/2iexp/bgm_shooting/se_bomb3.mp3"), TEXT("explosion"));
+	Sound::getInstance()->registerFile(TEXT("M:/2iexp/bgm_shooting/se_shot1.mp3"), TEXT("shoot"));
+	Sound::getInstance()->registerFile(TEXT("M:/2iexp/bgm_shooting/Electron_Energy.mp3"), TEXT("bgm"));
 
 	Sound::getInstance()->request(TEXT("bgm"));
 

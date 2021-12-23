@@ -78,7 +78,7 @@ void Fighter::draw()
 	radius = 30;
 	//c = TEXT("-+-");
 	//TextOut(App::hDC, (int)x - 23, (int)y + 6, c, lstrlen(c));
-	drawDebug();
+	// drawDebug();
 
 
 }
