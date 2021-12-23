@@ -2,17 +2,20 @@
 #include "App.h"
 #include "Fighter.h"
 #include "EnemyA.h"
+#include "EnemyB.h"
 #include "Missile.h"
 #include "Score.h"
 #include <vector>
 #define N_MISSILE 10
 #define N_ENEMY_A 2
+#define N_ENEMY_B 3
 
 class ShootingApp :
     public App
 {
     Fighter fighter;
     EnemyA enemyA[N_ENEMY_A];
+    EnemyB enemyB[N_ENEMY_B];
     Missile missile[N_MISSILE];
     std::vector<FlyingObject*> fos;
     std::vector<Enemy*> enemies;

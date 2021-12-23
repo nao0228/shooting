@@ -2,12 +2,7 @@
 #include "FlyingObject.h"
 class Missile :
     public FlyingObject
-{	
-private:
-	double x;
-	double y;
-	double vx;
-	double vy;
+{
 public:
 	Missile();
 	~Missile();
